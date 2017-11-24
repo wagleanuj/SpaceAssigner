@@ -2,13 +2,10 @@
 
 CS3716 Software Methodology
 
-## Group 3 (sub-groups 11 and 13)
-
-Anuj Wagle (201511763, aw7464@mun.ca)
-Eeshan Garg (201520319, eg3800@mun.ca)
-Hussein Parpia (201525250, hp5702@mun.ca)
+## Anuj Wagle (201511763, aw7464@mun.ca)
+ ,
 Prasanga Dhakal (201459542, pd4537@mun.ca)
-Sahil Anand (201440047, sa7437@mun.ca)
+ ,
 Wenrui Zhen (201409489, wz8031@mun.ca)
 
 ## Project Outline
