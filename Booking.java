@@ -35,6 +35,6 @@ public class Booking {
 		return this.approved;
 	}
 	public String toString() {
-		return "Booking 1 by Eeshan";
+		return "Booking 1- Feature Add Remobve to be implemented";
 	}
 }
