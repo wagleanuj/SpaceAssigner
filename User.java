@@ -31,4 +31,7 @@ public class User {
 	public void deleteBooking(Booking booking, Scheduler scheduler) {
 		scheduler.cancelBooking(booking);
 	}
+	public String toString() {
+		return fullName+"\n"+studentNumber;
+	}
 }

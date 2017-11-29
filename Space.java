@@ -1,14 +1,26 @@
 package Scheduler;
-
+import java.util.HashMap;
+import java.util.LinkedList;
 public class Space {
 	private String location;
-	private Interval time;
 	private String semester;
 	private User user = null;
-	public Space(String l, Interval c, String s) {
+	private IntervalMapper im;
+	private LinkedList<String> availableMonths;
+	public Space(String l, IntervalMapper c, String s) {
 		this.location=l;
-		this.time=c;
+		this.im=c;
 		this.semester=s;
+		this.availableMonths=new LinkedList<String>();
+	}
+	public LinkedList<String> getAvailableMonths() {
+		return availableMonths;
+	}
+	public void addAvailableMonth(String month) {
+		this.availableMonths.add(month);
+	}
+	public void setAvailableMonths(LinkedList<String> availableMonths) {
+		this.availableMonths = availableMonths;
 	}
 	public boolean isAvailable() {
 		return this.user == null;
@@ -20,11 +32,11 @@ public class Space {
 		this.location = location;
 	}
 	
-	public Interval getTime() {
-		return time;
+	public IntervalMapper getTime() {
+		return im;
 	}
-	public void setTime(Interval time) {
-		this.time = time;
+	public void setTime(IntervalMapper time) {
+		this.im = time;
 	}
 	public void setUser(User u) { this.user = u; }
 	public User getUser() { return this.user; }
@@ -33,6 +45,6 @@ public class Space {
 	public void setSemester(String s) { this.semester = s; } 
 	
 	public String toString() {
-		return location + ", " + semester + ", " + time.toString();
+		return location + ", " + semester + ", " + im.toString();
 	}
 }

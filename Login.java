@@ -16,9 +16,6 @@ import Scheduler.UserPanel;
 public class Login {
 
 	private JFrame frame;
-	private JTextField stdField;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -48,42 +45,23 @@ public class Login {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 730, 515);
+		frame.setBounds(100, 100, 698, 354);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		stdField = new JTextField();
-		stdField.setBounds(233, 153, 116, 22);
-		frame.getContentPane().add(stdField);
-		stdField.setColumns(10);
-		
-		JLabel lblStudentNumber = new JLabel("Student Number");
-		lblStudentNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblStudentNumber.setBounds(75, 156, 156, 16);
-		frame.getContentPane().add(lblStudentNumber);
-		
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPassword.setBounds(75, 200, 156, 16);
-		frame.getContentPane().add(lblPassword);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(233, 197, 116, 22);
-		frame.getContentPane().add(passwordField);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserPanel.main(null);
+				UserSelection.main(null);
 				frame.dispose();
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnLogin.setBounds(233, 254, 97, 25);
+		btnLogin.setBounds(379, 135, 97, 25);
 		frame.getContentPane().add(btnLogin);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(12, 311, 671, 2);
+		separator.setBounds(12, 214, 671, 2);
 		frame.getContentPane().add(separator);
 		
 		JLabel lblSchedulingSystem = new JLabel("Scheduling System ");
@@ -97,12 +75,8 @@ public class Login {
 		
 		JLabel lblLoginAsAdministrator = new JLabel("Login as Administrator");
 		lblLoginAsAdministrator.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblLoginAsAdministrator.setBounds(75, 326, 289, 16);
+		lblLoginAsAdministrator.setBounds(75, 229, 289, 28);
 		frame.getContentPane().add(lblLoginAsAdministrator);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(233, 367, 116, 22);
-		frame.getContentPane().add(passwordField_1);
 		
 		JButton adminLoginbutton = new JButton("Login");
 		adminLoginbutton.addActionListener(new ActionListener() {
@@ -113,12 +87,12 @@ public class Login {
 			}
 		});
 		adminLoginbutton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		adminLoginbutton.setBounds(384, 366, 97, 25);
+		adminLoginbutton.setBounds(379, 231, 97, 25);
 		frame.getContentPane().add(adminLoginbutton);
 		
-		JLabel lblPassword_1 = new JLabel("Password");
-		lblPassword_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPassword_1.setBounds(75, 370, 116, 19);
-		frame.getContentPane().add(lblPassword_1);
+		JLabel lblLoginAsStudent = new JLabel("Login as Student\r\n");
+		lblLoginAsStudent.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblLoginAsStudent.setBounds(75, 133, 289, 28);
+		frame.getContentPane().add(lblLoginAsStudent);
 	}
 }

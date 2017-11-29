@@ -1,20 +1,24 @@
 package Scheduler;
 
+import java.util.LinkedList;
+
 public class Interval {
-	private Day day;
 	private String start;
 	private String end;
-	public Interval(Day d,String s, String e) {
+	private Boolean booked;
+	private User bookedBy;
+	private LinkedList<User> requestingUsers;
+	public Interval(String s, String e) {
 		this.start=s;
-		this.day=d;
 		this.end=e;	
+		bookedBy=null;
+		booked=false;
+		requestingUsers=new LinkedList<User>();
+		
+		
 	}
-	public Day getDay() {
-		return day;
-	}
-	public void setDay(Day day) {
-		this.day = day;
-	}
+	
+	
 	public String getStart() {
 		return start;
 	}
@@ -28,8 +32,21 @@ public class Interval {
 		this.end = end;
 	}
 	public String toString() {
-		return day.toString() + " " + start + "-" + end;
+		return " " + start + "-" + end;
 	}
+	public Boolean getBooked() {
+		return booked;
+	}
+	public void setBookedBy(User u) {
+		bookedBy=u;
+	}
+	public void addRequestingUser(User u) {
+		requestingUsers.add(u);
+	}
+	public LinkedList<User> getRequestingUsers(){
+		return requestingUsers;
+	}
+	
 	
 
 }

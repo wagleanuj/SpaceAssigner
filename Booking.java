@@ -4,13 +4,36 @@ import java.util.LinkedList;
 
 public class Booking {
 	private User user;
+	private Space sp;
+	private Interval i;
 	private LinkedList<Space> spaces = new LinkedList<>();
 	private Space approved = null;
+	private Day day;
+	public Booking() {
+		this.user = null; }
 	
+	public Day getDay() {
+		return day;
+	}
+	public void setDay(Day day) {
+		this.day = day;
+	}
 	public Booking(User u) {
 		this.user = u;
 	}
-	public Booking() { this.user = null; }
+	public Space getSpace() {
+		return sp;
+	}
+	public void setSpace(Space sp) {
+		this.sp = sp;
+	}
+	public Interval getInterval() {
+		return i;
+	}
+	public void setInterval(Interval i) {
+		this.i = i;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -35,6 +58,6 @@ public class Booking {
 		return this.approved;
 	}
 	public String toString() {
-		return "Booking 1- Feature Add Remobve to be implemented";
+		return sp.getLocation()+","+day.toString()+","+i.toString()+" - "+user.toString();
 	}
 }

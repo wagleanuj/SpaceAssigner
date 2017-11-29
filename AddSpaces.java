@@ -4,8 +4,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 import javax.swing.JTextField;
 //import com.jgoodies.forms.layout.FormLayout;
@@ -18,6 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import java.awt.Font;
+import javax.swing.JCheckBox;
 
 public class AddSpaces {
 
@@ -52,7 +55,7 @@ public class AddSpaces {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 512, 394);
+		frame.setBounds(100, 100, 537, 741);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -67,7 +70,7 @@ public class AddSpaces {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"}));
-		comboBox.setBounds(109, 153, 57, 22);
+		comboBox.setBounds(109, 276, 57, 22);
 		frame.getContentPane().add(comboBox);
 		
 		JLabel lblSemester = new JLabel("Semester");
@@ -92,29 +95,134 @@ public class AddSpaces {
 		rgroup.add(rdbtnSpring);
 		
 		JLabel lblStart = new JLabel("Start");
-		lblStart.setBounds(41, 156, 56, 16);
+		lblStart.setBounds(41, 279, 56, 16);
 		frame.getContentPane().add(lblStart);
 		
 		JLabel label = new JLabel("End");
-		label.setBounds(41, 198, 56, 16);
+		label.setBounds(200, 282, 56, 16);
 		frame.getContentPane().add(label);
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"}));
-		comboBox_2.setBounds(109, 195, 57, 22);
+		comboBox_2.setBounds(268, 279, 57, 22);
 		frame.getContentPane().add(comboBox_2);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}));
-		comboBox_1.setBounds(109, 251, 76, 22);
-		frame.getContentPane().add(comboBox_1);
-		
-		JLabel dayName = new JLabel("Day");
-		dayName.setBounds(41, 254, 56, 16);
+		JLabel dayName = new JLabel("Days");
+		dayName.setBounds(41, 306, 56, 16);
 		frame.getContentPane().add(dayName);
 		
+		JCheckBox chckbcSunday = new JCheckBox("Sunday");
+		chckbcSunday.setBounds(112, 310, 113, 25);
+		frame.getContentPane().add(chckbcSunday);
+		
+		JCheckBox chckbxMonday = new JCheckBox("Monday");
+		chckbxMonday.setBounds(112, 340, 113, 25);
+		frame.getContentPane().add(chckbxMonday);
+		
+		JCheckBox chckbxTuesday = new JCheckBox("Tuesday");
+		chckbxTuesday.setBounds(112, 370, 113, 25);
+		frame.getContentPane().add(chckbxTuesday);
+		
+		JCheckBox chckbxWednesday = new JCheckBox("Wednesday");
+		chckbxWednesday.setBounds(112, 400, 113, 25);
+		frame.getContentPane().add(chckbxWednesday);
+		
+		JCheckBox chckbxThursday = new JCheckBox("Thursday");
+		chckbxThursday.setBounds(112, 430, 113, 25);
+		frame.getContentPane().add(chckbxThursday);
+		
+		JCheckBox chckbxFriday = new JCheckBox("Friday");
+		chckbxFriday.setBounds(112, 460, 113, 25);
+		frame.getContentPane().add(chckbxFriday);
+		
+		JCheckBox chckbxSaturday = new JCheckBox("Saturday");
+		chckbxSaturday.setBounds(112, 486, 113, 25);
+		frame.getContentPane().add(chckbxSaturday);
+		LinkedList<JCheckBox> dayBoxes= new LinkedList<JCheckBox>();
+		dayBoxes.add(chckbcSunday);
+		dayBoxes.add(chckbxMonday);
+		dayBoxes.add(chckbxTuesday);
+		dayBoxes.add(chckbxWednesday);
+		dayBoxes.add(chckbxThursday);
+		dayBoxes.add(chckbxFriday);
+		dayBoxes.add(chckbxSaturday);
+		JLabel lblAddASpace = new JLabel("Add A Space");
+		lblAddASpace.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblAddASpace.setBounds(159, 13, 208, 36);
+		frame.getContentPane().add(lblAddASpace);
+		
+		JCheckBox chckbxMay = new JCheckBox("May");
+		chckbxMay.setBounds(109, 138, 113, 25);
+		frame.getContentPane().add(chckbxMay);
+		
+		JCheckBox chckbxJun = new JCheckBox("Jun");
+		chckbxJun.setBounds(109, 168, 113, 25);
+		frame.getContentPane().add(chckbxJun);
+		
+		JCheckBox chckbxJul = new JCheckBox("Jul");
+		chckbxJul.setBounds(109, 195, 113, 25);
+		frame.getContentPane().add(chckbxJul);
+		
+		JCheckBox chckbxAug = new JCheckBox("Aug");
+		chckbxAug.setBounds(109, 225, 113, 25);
+		frame.getContentPane().add(chckbxAug);
+		
+		JCheckBox chckbxJan = new JCheckBox("Jan");
+		chckbxJan.setBounds(234, 138, 113, 25);
+		frame.getContentPane().add(chckbxJan);
+		
+		JCheckBox chckbxFeb = new JCheckBox("Feb");
+		chckbxFeb.setBounds(234, 168, 113, 25);
+		frame.getContentPane().add(chckbxFeb);
+		
+		JCheckBox chckbxMar = new JCheckBox("Mar");
+		chckbxMar.setBounds(234, 195, 113, 25);
+		frame.getContentPane().add(chckbxMar);
+		
+		JCheckBox chckbxApr = new JCheckBox("Apr");
+		chckbxApr.setBounds(234, 225, 113, 25);
+		frame.getContentPane().add(chckbxApr);
+		
+		JCheckBox chckbxSep = new JCheckBox("Sep");
+		chckbxSep.setBounds(368, 138, 113, 25);
+		frame.getContentPane().add(chckbxSep);
+		
+		JCheckBox chckbxOct = new JCheckBox("Oct");
+		chckbxOct.setBounds(368, 168, 113, 25);
+		frame.getContentPane().add(chckbxOct);
+		
+		JCheckBox chckbxNov = new JCheckBox("Nov");
+		chckbxNov.setBounds(368, 195, 113, 25);
+		frame.getContentPane().add(chckbxNov);
+		
+		JCheckBox chckbxDec = new JCheckBox("Dec");
+		chckbxDec.setBounds(368, 225, 113, 25);
+		frame.getContentPane().add(chckbxDec);
+		LinkedList<JCheckBox> checkBoxesAll=new LinkedList<JCheckBox>();
+		LinkedList<JCheckBox> checkboxesFall=new LinkedList<JCheckBox>();
+		LinkedList<JCheckBox> checkboxesWinter=new LinkedList<JCheckBox>();
+		
+		checkBoxesAll.add(chckbxMay);
+		checkBoxesAll.add(chckbxJun);
+		checkBoxesAll.add(chckbxJul);
+		checkBoxesAll.add(chckbxAug);
+		
+		checkBoxesAll.add(chckbxSep);
+		checkBoxesAll.add(chckbxOct);
+		checkBoxesAll.add(chckbxNov);
+		checkBoxesAll.add(chckbxDec);
+		
+		checkBoxesAll.add(chckbxJan);
+		checkBoxesAll.add(chckbxFeb);
+		checkBoxesAll.add(chckbxMar);
+		checkBoxesAll.add(chckbxApr);
+		
+		
+
+		
+		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(36, 309, 97, 25);
+		btnSubmit.setBounds(41, 532, 97, 25);
 		frame.getContentPane().add(btnSubmit);
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
@@ -126,22 +234,41 @@ public class AddSpaces {
 				if (rdbtnWinter.isSelected()) { semester = "Winter"; }
 				else if (rdbtnFall.isSelected()) { semester = "Fall"; }
 				else if (rdbtnSpring.isSelected()){ semester = "Spring"; }
-				String day = comboBox_1.getSelectedItem().toString();
+				IntervalMapper sched=new IntervalMapper();
+				Interval time = new Interval(start, end);
+				for(JCheckBox j :dayBoxes) {
+					if(j.isSelected()) {
+						sched.addInterval(Day.getDayEnum(j.getText()),time);
+					}
+					
+				}
+				LinkedList<String>availableMonths=new LinkedList<String>();
+				for(JCheckBox jb:checkBoxesAll) {
+					if(jb.isSelected()) {
+						availableMonths.add(jb.getText());
+									
+					}
+				}
 				
-				Interval time = new Interval(Day.getDayEnum(day), start, end);
-				Space space = new Space(location, time, semester);
+				Space space = new Space(location, sched, semester);
+				space.setAvailableMonths(availableMonths);
 				Test.scheduler.addAvailableSpace(space);
-				
+				System.out.println(sched.toString());
 				AdminPanel.main(null);
+				
 				
 				frame.dispose();
 			}
 		});
 		
-		JLabel lblAddASpace = new JLabel("Add A Space");
-		lblAddASpace.setFont(new Font("Tahoma", Font.BOLD, 19));
-		lblAddASpace.setBounds(159, 13, 208, 36);
-		frame.getContentPane().add(lblAddASpace);
+		
+
+		
+		
+
+		
+		
+		
 		
 	}
 }

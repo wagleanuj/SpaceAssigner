@@ -5,16 +5,32 @@ public class Scheduler {
 	private LinkedList<Space> acceptedSpaces = new LinkedList<>();
 	private LinkedList<Space> availableSpaces = new LinkedList<>();
 	private LinkedList<Booking> pendingBookings = new LinkedList<>();
-
-	public void acceptBooking(Booking booking, Space space) {
-		User user = booking.getUser();
-		if (space.isAvailable()) {
-			this.availableSpaces.remove(space);
-		    space.setUser(user);
-		    this.acceptedSpaces.add(space);
+	private LinkedList<Booking>acceptedBookings= new LinkedList<>();
+	private LinkedList<Booking>rejectedBookings= new LinkedList<>();
+	
+	
+	public void acceptBooking(Booking booking) {
 		    this.pendingBookings.remove(booking);
-		    booking.setApproved(space);
-		}
+		    this.acceptedBookings.add(booking);
+		    
+	}
+	public LinkedList<Booking> getAcceptedBookings() {
+		return acceptedBookings;
+	}
+	public void setAcceptedBookings(LinkedList<Booking> acceptedBookings) {
+		this.acceptedBookings = acceptedBookings;
+	}
+	public LinkedList<Booking> getRejectedBookings() {
+		return rejectedBookings;
+	}
+	public void setRejectedBookings(LinkedList<Booking> rejectedBookings) {
+		this.rejectedBookings = rejectedBookings;
+	}
+	
+	public void rejectBooking(Booking booking) {
+		this.rejectedBookings.add(booking);
+		pendingBookings.remove(booking);
+		
 	}
 	
 
@@ -24,6 +40,9 @@ public class Scheduler {
 
 	public LinkedList<Space> getAvailableSpaces() {
 		return availableSpaces;
+	}
+	public void setAvailableSpaces(LinkedList<Space> sp) {
+		availableSpaces=sp;
 	}
 	
 	public void addAvailableSpace(Space space) {
@@ -43,4 +62,5 @@ public class Scheduler {
 		// be cancelled. TODO allow cancelling accepted bookings
 		this.pendingBookings.remove(booking);
 	}
+	
 }
