@@ -1,10 +1,8 @@
-# Scheduler
-CS3716 Project
-# CS3716 Group Project - Scheduling System
+# CS3716 Group Project - Space Assigner
 
 ## Repository URL
 
-You can find the repository at https://github.com/wagleanuj/CS3716Scheduler
+You can find the repository at https://github.com/wagleanuj/SpaceAssigner
 
 ## Course Details
 
@@ -17,28 +15,28 @@ You can find the repository at https://github.com/wagleanuj/CS3716Scheduler
 
 ### Group 11
 
-There are four members in our group. **Dr. Fiech is aware of this.**
-
 * Anuj Wagle (aw7464@mun.ca)
-* Prasanga Dhakal (pd4537@mun.ca
+* Prasanga Dhakal (pd4537@mun.ca)
 * Wenrui Zhen (wz8031@mun.ca)
 
+https://github.com/wagleanuj/SpaceAssigner
+	
 
 ### Point Distribution
 
-The point distribution for three group memebers are as follow:
+The point distribution for three group members are as follow:
 
 * Anuj Wagle - **10 points** - Anuj supervised the entire project
   and made critical development decisions. Anuj was responsible for
   object serialization, managing the Git repository and writing
-  `AddSpaces.java`, 'UserBooking.java' , `Scheduler.java` and  'IntervalMapper.java'.
+  `AddSpaces.java`, `UserBooking.java` , `Scheduler.java` and  `IntervalMapper.java`.
 
 * Prasanga Dhakal - **10 points** - Prasanga composed the initial GUI design.
-  Prasanga was also responsible for writing parts of `Booking.java`, `CheckAcceptance.java`,Test.java`, 'Interval.java'
+  Prasanga was also responsible for writing parts of `Booking.java`, `CheckAcceptance.java`,Test.java`, `Interval.java`
   and various improvements to the code base.
 
 * Wenrui Zhen - **10 points** - Wenrui was responsible for writing the
-  code for handling conflict. Wenrui also wrote `Login.java`,'UserSelection.java','Day.java'  and `AdminPanel.java`
+  code for handling conflict. Wenrui also wrote `Login.java`,`UserSelection.java`,`Day.java`  and `AdminPanel.java`
   `Booking.java`, and `Space.java`. He also focused on error handling
  and wrote the Eclipse **Instructions** at the
   end of this document..
@@ -56,7 +54,7 @@ The point distribution for three group memebers are as follow:
 
 4. Uncheck the checkbox **Use Default Location**
 
-5. Click on **Browse** and select the `CS3716Scheduler` repository you
+5. Click on **Browse** and select the `SpaceAssigner`repository you
    cloned in **Step 1**.
 
 6. Click on **Finish**.
