@@ -21,7 +21,12 @@ import javax.swing.JButton;
 import javax.swing.ButtonGroup;
 import java.awt.Font;
 import javax.swing.JCheckBox;
-
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 public class AddSpaces {
 
 	private JFrame frame;
@@ -253,10 +258,38 @@ public class AddSpaces {
 				Space space = new Space(location, sched, semester);
 				space.setAvailableMonths(availableMonths);
 				Test.scheduler.addAvailableSpace(space);
+				Test.interval.addStart(start);
+				Test.interval.addEnd(end);
 				System.out.println(sched.toString());
+				Test.writeObjectToFile(Test.scheduler);
+				
+				/*
+				 * try{
+					FileOutputStream fos = new FileOutputStream(new File("memory.xml"));
+					XMLEncoder encoder = new XMLEncoder(fos);
+					encoder.writeObject(space);
+					encoder.close();
+					
+					fos.close();
+				}catch(IOException ex){
+					ex.printStackTrace();
+				}
+				
+				 * Following code is for reading the created XML file
+				 * try{
+					FileInputStream fis = new FileInputStream(new File("./memory.xml"));
+					XMLDecoder decoder = new XMLDecoder(fis);
+					Space space2 = (Space)decoder.readObject();
+					decoder.close();
+					fis.close();
+				}catch(IOException ex){
+					ex.printStackTrace();
+				}
+				 */
+				
+				
 				AdminPanel.main(null);
-				
-				
+
 				frame.dispose();
 			}
 		});

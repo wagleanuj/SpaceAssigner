@@ -1,12 +1,16 @@
 package Scheduler;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
-public class Space {
+public class Space implements Serializable {
 	private String location;
 	private String semester;
 	private User user = null;
 	private IntervalMapper im;
 	private LinkedList<String> availableMonths;
+	public Space(){
+		
+	}
 	public Space(String l, IntervalMapper c, String s) {
 		this.location=l;
 		this.im=c;

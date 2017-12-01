@@ -1,12 +1,14 @@
 package Scheduler;
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Scheduler {
+public class Scheduler implements Serializable{
 	private LinkedList<Space> acceptedSpaces = new LinkedList<>();
 	private LinkedList<Space> availableSpaces = new LinkedList<>();
 	private LinkedList<Booking> pendingBookings = new LinkedList<>();
 	private LinkedList<Booking>acceptedBookings= new LinkedList<>();
 	private LinkedList<Booking>rejectedBookings= new LinkedList<>();
+	
 	
 	
 	public void acceptBooking(Booking booking) {

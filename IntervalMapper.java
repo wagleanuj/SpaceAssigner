@@ -1,10 +1,11 @@
 package Scheduler;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
 
-public class IntervalMapper {
+public class IntervalMapper implements Serializable{
 	private HashMap<String,LinkedList<Interval>> schedule= new HashMap<String, LinkedList<Interval>>();
 	
 
@@ -64,5 +65,24 @@ public class IntervalMapper {
 				
 	}
 
+	public Interval getOneInterval(){
+		
+		for (Map.Entry<String, LinkedList<Interval>> entry : schedule.entrySet())
+		{
+		    if(!entry.getValue().isEmpty()) {
+			  
 
+		    
+		    for(Interval i :entry.getValue()) {
+		    	
+		    	if(!i.getStart().equals("")){
+		    		return i;
+		    	}
+		    	
+		    }
+		    }
+		}		
+		return null;
+	}
 }
+

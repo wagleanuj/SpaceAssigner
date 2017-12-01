@@ -1,8 +1,9 @@
 package Scheduler;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class User {
+public class User implements Serializable{
 	private String fullName;
 	private int studentNumber;
 	public User(String n, int num) {

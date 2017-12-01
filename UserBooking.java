@@ -6,15 +6,18 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.AbstractListModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class UserBooking {
 
@@ -25,8 +28,6 @@ public class UserBooking {
 	Space currentSpace=null;
 	private JTextField startTime;
 	private JTextField endTime;
-	private JTextField start;
-	private JTextField end;
 
 
 
@@ -63,6 +64,14 @@ public class UserBooking {
 		frame.getContentPane().setLayout(null);
 		
 		LinkedList<Space> availableSpaces=Test.scheduler.getAvailableSpaces();
+		String b=Test.interval.getEnd();
+		//LinkedList<Integer> aa=new LinkedList<Integer>();
+		//LinkedList<Integer> bb=new LinkedList<Integer>();
+		//int i=Integer.parseInt("a");
+       // int j=Integer.parseInt("b");
+       
+		
+		
 		
 		JList sundayList = new JList();
 		DefaultListModel<String> sundayModel= new DefaultListModel<>();
@@ -102,18 +111,9 @@ public class UserBooking {
 		thursdayList.setBounds(579, 197, 125, 316);
 		
 		frame.getContentPane().add(thursdayList);
-		start = new JTextField();
-		start.setBounds(106, 523, 116, 22);
-		frame.getContentPane().add(start);
-		start.setColumns(10);
-		
-		end = new JTextField();
-		end.setColumns(10);
-		end.setBounds(359, 523, 116, 22);
-		frame.getContentPane().add(end);
 		
 		JLabel lblStartTime = new JLabel("Start Time");
-		lblStartTime.setBounds(41, 526, 63, 16);
+		lblStartTime.setBounds(41, 526, 64, 16);
 		frame.getContentPane().add(lblStartTime);
 		
 		JLabel lblEndTime = new JLabel("End Time");
@@ -124,6 +124,9 @@ public class UserBooking {
 		saturdayList.setModel(saturdayModel);
 		saturdayList.setBounds(848, 197, 125, 316);
 		frame.getContentPane().add(saturdayList);
+		LinkedList<String> hoursAllowed= new LinkedList<String>(Arrays.asList("1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"));
+		LinkedList<String>allowedStart= new LinkedList<String>();
+		LinkedList<String>allowedEnd= new LinkedList<String>();
 		
 		for(Space s : availableSpaces) {
 			if(s.getLocation().equals(location)) {
@@ -132,6 +135,39 @@ public class UserBooking {
 								
 			}
 		}
+		IntervalMapper a=currentSpace.getTime();
+		LinkedList<String>allowedEntries=new LinkedList<String>();
+
+		if(a.getOneInterval()!=null)
+		{
+		String s1 = a.getOneInterval().getStart();
+		String s2= a.getOneInterval().getEnd();
+		System.out.println(s1);
+
+		
+		int st=hoursAllowed.indexOf(s1);
+		int end =hoursAllowed.indexOf(s2);
+		
+		for (int j=st;j<=end;j++){
+			allowedEntries.add(hoursAllowed.get(j));
+		}
+		String[] ss= new String[hoursAllowed.size()];
+		
+		}
+		String[] ss= new String[hoursAllowed.size()];
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(allowedEntries.toArray(ss)));
+		//"1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"}));
+		comboBox.setBounds(116, 525, 52, 27);
+		frame.getContentPane().add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(allowedEntries.toArray(ss)));//"1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM", "12 PM"}));
+		comboBox_1.setBounds(351, 522, 52, 27);
+		frame.getContentPane().add(comboBox_1);
+		
+
 		fillModel(sundayModel,im.getIntervals(Day.SUNDAY),currentSpace);
 		fillModel(mondayModel,im.getIntervals(Day.MONDAY),currentSpace);
 		fillModel(tuesdayModel,im.getIntervals(Day.TUESDAY),currentSpace);
@@ -139,6 +175,9 @@ public class UserBooking {
 		fillModel(thursdayModel,im.getIntervals(Day.THURSDAY),currentSpace);
 		fillModel(fridayModel,im.getIntervals(Day.FRIDAY),currentSpace);
 		fillModel(saturdayModel,im.getIntervals(Day.SATURDAY),currentSpace);
+		
+		
+		
 		
 		
 		JLabel lblPleaseSelectAll = new JLabel("Please select all the slots that you can take. The principal will choose which slot you will get.");
@@ -223,7 +262,9 @@ public class UserBooking {
 				//get all selected items
 				//set requesting users
 				//done
-				Interval timerequested=new Interval(start.getText(),end.getText());
+				String start = comboBox.getSelectedItem().toString();
+				String end = comboBox_1.getSelectedItem().toString();
+				Interval timerequested=new Interval(start,end);
 				User u= new User(userName.getText(),Integer.parseInt(stdno.getText().toString()));
 				fillIntervalRequesters(sundayList,im,Day.SUNDAY,u,currentSpace,timerequested);
 				fillIntervalRequesters(mondayList,im,Day.MONDAY,u,currentSpace,timerequested);
@@ -255,6 +296,8 @@ public class UserBooking {
 		JButton logout = new JButton("Logout");
 		logout.setBounds(848, 24, 97, 25);
 		frame.getContentPane().add(logout);
+		
+		
 		
 		
 		

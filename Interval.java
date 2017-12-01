@@ -1,8 +1,9 @@
 package Scheduler;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Interval {
+public class Interval implements Serializable {
 	private String start;
 	private String end;
 	private Boolean booked;
@@ -25,11 +26,17 @@ public class Interval {
 	public void setStart(String start) {
 		this.start = start;
 	}
+	public void addStart(String s){
+		this.start=s;
+	}
 	public String getEnd() {
 		return end;
 	}
 	public void setEnd(String end) {
 		this.end = end;
+	}
+	public void addEnd(String e){
+		this.end=e;
 	}
 	public String toString() {
 		return " " + start + "-" + end;
@@ -46,7 +53,6 @@ public class Interval {
 	public LinkedList<User> getRequestingUsers(){
 		return requestingUsers;
 	}
-	
 	
 
 }
