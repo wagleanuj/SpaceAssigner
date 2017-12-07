@@ -7,9 +7,8 @@
 
 **Anuj Wagle**
 
-**Prasanga Dhakal**
+**Eeshan Garg**
 
-**Wenrui Zhen**
 
 ## Introduction 
 This program, making use of some design patterns taught in class, allows the Principal to set the schedule for two spaces which can be further extended to support more spaces. For example principal can 
@@ -29,22 +28,7 @@ Once a schedule is created , it is saved in a txt file which can be extended to 
 4. Click Finish
 5. Run `Test.java` as java application
 
-## Contribution
 
-* Anuj Wagle ( **10 points** )
-	1. Made the class diagrams and the architechture for the program
-	2. Made the GUI design
-	3. **Contributions**:  `AddSpaces.java`, `UserBooking.java` , `Scheduler.java` and  `IntervalMapper.java`.
-
-* Prasanga Dhakal(**10 points**)
-	1. Made some GUI components
-	2. **Contributions**: `Booking.java`, `CheckAcceptance.java`,`Test.java`, `Interval.java`
-  
-
-* Wenrui Zhen(**10 points**) 
-	1. Made conflict handling part
-  	2. Contributions: `Login.java`,`UserSelection.java`,`Day.java`  and `AdminPanel.java`
-  `Booking.java`, and `Space.java`. 
    
 Any questions can be forwarded to **aw7464@mun.ca**
  
